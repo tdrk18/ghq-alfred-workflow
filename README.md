@@ -1,0 +1,2 @@
+ghq-alfred-workflow
+---
