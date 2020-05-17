@@ -20,7 +20,7 @@ func init() {
 func run() {
 	app := &cli.App{
 		Action: func(c *cli.Context) error {
-			query := strings.Join(c.Args().Slice(), ",")
+			query := getQuery(c.Args().First())
 			wf.NewItem("First result!").Valid(true)
 			wf.NewItem("Second result!").Valid(true)
 			wf.NewItem(query).Valid(true)
@@ -37,4 +37,8 @@ func run() {
 
 func main() {
 	wf.Run(run)
+}
+
+func getQuery(arg string) string {
+	return strings.Trim(arg, "\n")
 }
