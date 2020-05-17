@@ -27,6 +27,7 @@ func run() {
 				addItem(repo)
 			}
 			filter(query)
+			wf.WarnEmpty("No matched repository", "Please try new query")
 			wf.SendFeedback()
 			return nil
 		},
