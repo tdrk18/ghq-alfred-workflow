@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"os/exec"
@@ -64,6 +65,11 @@ func getRepoName(repo string, excludeDomain bool) string {
 	return strings.Join(repoPath[length-i:length], "/")
 }
 
+func getRepoURL(repo string) string {
+	repoName := getRepoName(repo, false)
+	return fmt.Sprintf("https://%s", repoName)
+}
+
 func execGhq() []byte {
 	command := os.Getenv("ghq")
 	out, err := exec.Command(command, "list", "-p").Output()
@@ -79,5 +85,6 @@ func filter(query string) {
 
 func addItem(repo string) {
 	wf.NewItem(getRepoName(repo, true)).
+		Arg(getRepoURL(repo)).
 		Valid(true)
 }

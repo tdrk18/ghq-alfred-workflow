@@ -38,3 +38,11 @@ func TestGetRepoName(t *testing.T) {
 		t.Fatal(fmt.Sprintf("failed: getRepoName(repo, false) returns %s", result2))
 	}
 }
+
+func TestGetRepoURL(t *testing.T) {
+	path := "/path/to/github.com/tdrk18/repo"
+	result := getRepoURL(path)
+	if result != "https://github.com/tdrk18/repo" {
+		t.Fatal(fmt.Sprintf("failed: getRepoURL() returns %s", result))
+	}
+}
