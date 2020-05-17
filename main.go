@@ -23,11 +23,8 @@ func run() {
 		Action: func(c *cli.Context) error {
 			query := getQuery(c.Args().First())
 			repos := getRepos(execGhq())
-			wf.NewItem("First result!").Valid(true)
-			wf.NewItem("Second result!").Valid(true)
-			wf.NewItem(query).Valid(true)
 			for _, repo := range repos {
-				wf.NewItem(repo).Valid(true)
+				addItem(repo)
 			}
 			filter(query)
 			wf.SendFeedback()
@@ -65,4 +62,8 @@ func execGhq() []byte {
 
 func filter(query string) {
 	wf.Filter(query)
+}
+
+func addItem(title string) {
+	wf.NewItem(title).Valid(true)
 }
