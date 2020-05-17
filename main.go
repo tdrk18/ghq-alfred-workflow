@@ -29,6 +29,7 @@ func run() {
 			for _, repo := range repos {
 				wf.NewItem(repo).Valid(true)
 			}
+			filter(query)
 			wf.SendFeedback()
 			return nil
 		},
@@ -60,4 +61,8 @@ func execGhq() []byte {
 		return []byte{}
 	}
 	return out
+}
+
+func filter(query string) {
+	wf.Filter(query)
 }
