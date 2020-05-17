@@ -52,6 +52,18 @@ func getRepos(bytes []byte) []string {
 	return strings.Split(trim, "\n")
 }
 
+func getRepoName(repo string, excludeDomain bool) string {
+	repoPath := strings.Split(repo, "/")
+	length := len(repoPath)
+	var i int
+	if excludeDomain {
+		i = 2
+	} else {
+		i = 3
+	}
+	return strings.Join(repoPath[length-i:length], "/")
+}
+
 func execGhq() []byte {
 	command := os.Getenv("ghq")
 	out, err := exec.Command(command, "list", "-p").Output()
@@ -65,6 +77,7 @@ func filter(query string) {
 	wf.Filter(query)
 }
 
-func addItem(title string) {
-	wf.NewItem(title).Valid(true)
+func addItem(repo string) {
+	wf.NewItem(getRepoName(repo, true)).
+		Valid(true)
 }

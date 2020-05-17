@@ -26,3 +26,15 @@ func TestGetRepos(t *testing.T) {
 		t.Fatal(fmt.Sprintf("failed: getRepos().second returns %s", result[1]))
 	}
 }
+
+func TestGetRepoName(t *testing.T) {
+	path := "/path/to/github.com/tdrk18/repo"
+	result1 := getRepoName(path, true)
+	if result1 != "tdrk18/repo" {
+		t.Fatal(fmt.Sprintf("failed: getRepoName(repo, true) returns %s", result1))
+	}
+	result2 := getRepoName(path, false)
+	if result2 != "github.com/tdrk18/repo" {
+		t.Fatal(fmt.Sprintf("failed: getRepoName(repo, false) returns %s", result2))
+	}
+}
