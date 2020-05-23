@@ -21,7 +21,7 @@ test: $(TESTDIR)
 
 convert:
 	cd resources && \
-	rm -f {github, gitlab, bitbucket}.png && \
+	rm -f {github,gitlab,bitbucket,git}.png && \
 	convert -background none github.svg github.png && \
 	convert -background none gitlab.svg gitlab.png && \
 	convert -background none bitbucket.svg bitbucket.png && \
