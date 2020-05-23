@@ -38,3 +38,10 @@ clean:
 	rm -f {github, gitlab, bitbucket}.png
 	cd dist && \
 	rm -rf ghq-alfred-workflow ghq-alfred.alfredworkflow resources
+
+.PHONY: distribution
+distribution: clean convert build
+	mkdir -p dist/resources
+	cp resources/*.png dist/resources/
+	cd dist && \
+	zip -r ghq-alfred.alfredworkflow .
