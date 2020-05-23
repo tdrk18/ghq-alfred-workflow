@@ -26,3 +26,8 @@ convert:
 	convert -background none gitlab.svg gitlab.png && \
 	convert -background none bitbucket.svg bitbucket.png && \
 	convert -background none git.svg git.png
+
+.PHONY: build
+build:
+	mkdir -p dist
+	GOOS=darwin GOARCH=amd64 go build -o dist/ghq-alfred-workflow
