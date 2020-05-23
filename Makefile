@@ -45,3 +45,11 @@ distribution: clean convert build
 	cp resources/*.png dist/resources/
 	cd dist && \
 	zip -r ghq-alfred.alfredworkflow .
+
+.PHONY: version
+version:
+	@if [ -z ${VERSION} ]; then \
+		echo "usage: make version VERSION='0.1.2'"; \
+		exit 1; \
+	fi
+	plutil -replace version -string ${VERSION} dist/Info.plist
