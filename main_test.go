@@ -39,6 +39,14 @@ func TestGetRepoName(t *testing.T) {
 	}
 }
 
+func TestGetDomain(t *testing.T) {
+	path := "/path/to/github.com/tdrk18/repo"
+	result := getDomain(path)
+	if result != "github.com" {
+		t.Fatal(fmt.Sprintf("failed: getDomain(repo) returns %s", result))
+	}
+}
+
 func TestGetRepoURL(t *testing.T) {
 	path := "/path/to/github.com/tdrk18/repo"
 	result := getRepoURL(path)

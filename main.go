@@ -65,6 +65,12 @@ func getRepoName(repo string, excludeDomain bool) string {
 	return strings.Join(repoPath[length-i:length], "/")
 }
 
+func getDomain(repo string) string {
+	repoPath := strings.Split(repo, "/")
+	length := len(repoPath)
+	return repoPath[length - 3]
+}
+
 func getRepoURL(repo string) string {
 	repoName := getRepoName(repo, false)
 	return fmt.Sprintf("https://%s", repoName)
@@ -86,5 +92,6 @@ func filter(query string) {
 func addItem(repo string) {
 	wf.NewItem(getRepoName(repo, true)).
 		Arg(getRepoURL(repo)).
+		Subtitle(getDomain(repo)).
 		Valid(true)
 }
