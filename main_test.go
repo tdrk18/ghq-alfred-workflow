@@ -47,6 +47,25 @@ func TestGetDomain(t *testing.T) {
 	}
 }
 
+func TestGetIconName(t *testing.T) {
+	github := getIconName("/path/to/github.com/tdrk18/repo")
+	if github != "github.png" {
+		t.Fatal(fmt.Sprintf("failed: getIconName(repo) returns %s", github))
+	}
+	gitlab := getIconName("/path/to/gitlab.com/tdrk18/repo")
+	if gitlab != "gitlab.png" {
+		t.Fatal(fmt.Sprintf("failed: getIconName(repo) returns %s", gitlab))
+	}
+	bitbucket := getIconName("/path/to/bitbucket.org/tdrk18/repo")
+	if bitbucket != "bitbucket.png" {
+		t.Fatal(fmt.Sprintf("failed: getIconName(repo) returns %s", bitbucket))
+	}
+	other := getIconName("/path/to/other.com/tdrk18/repo")
+	if other != "git.png" {
+		t.Fatal(fmt.Sprintf("failed: getIconName(repo) returns %s", other))
+	}
+}
+
 func TestGetRepoURL(t *testing.T) {
 	path := "/path/to/github.com/tdrk18/repo"
 	result := getRepoURL(path)

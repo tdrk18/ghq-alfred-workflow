@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path"
 	"strings"
 
 	aw "github.com/deanishe/awgo"
@@ -76,6 +77,24 @@ func getRepoURL(repo string) string {
 	return fmt.Sprintf("https://%s", repoName)
 }
 
+func getIconName(repo string) string {
+	domain := getDomain(repo)
+	switch {
+	case strings.Contains(domain, "github"):
+		return "github.png"
+	case strings.Contains(domain, "bitbucket"):
+		return "bitbucket.png"
+	case strings.Contains(domain, "gitlab"):
+		return "gitlab.png"
+	default:
+		return "git.png"
+	}
+}
+
+func getIcon(repo string) *aw.Icon {
+	return &aw.Icon{Value: path.Join(fmt.Sprintf("resources/%s", getIconName(repo)))}
+}
+
 func execGhq() []byte {
 	command := os.Getenv("ghq")
 	out, err := exec.Command(command, "list", "-p").Output()
@@ -93,5 +112,6 @@ func addItem(repo string) {
 	wf.NewItem(getRepoName(repo, true)).
 		Arg(getRepoURL(repo)).
 		Subtitle(getDomain(repo)).
+		Icon(getIcon(repo)).
 		Valid(true)
 }
