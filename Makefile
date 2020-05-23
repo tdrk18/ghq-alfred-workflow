@@ -18,3 +18,11 @@ test: $(TESTDIR)
 		alfred_workflow_cache=$(TESTDIR)/cache \
 		alfred_workflow_data=$(TESTDIR)/data \
 		go test ./... -v -cover
+
+convert:
+	cd resources && \
+	rm -f {github, gitlab, bitbucket}.png && \
+	convert -background none github.svg github.png && \
+	convert -background none gitlab.svg gitlab.png && \
+	convert -background none bitbucket.svg bitbucket.png && \
+	convert -background none git.svg git.png
