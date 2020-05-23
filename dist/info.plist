@@ -100,7 +100,9 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Search your local repositories with ghq and open it in your browser.
+
+Please install ghq.</string>
 	<key>uidata</key>
 	<dict>
 		<key>18419717-3E61-4138-ABC9-D40533ABBA90</key>
