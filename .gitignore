@@ -1,4 +1,7 @@
 bin/
 dist/
+!dist/18419717-3E61-4138-ABC9-D40533ABBA90.png
+!dist/icon-3E61-4138-ABC9-D40533ABBA90.png
+!dist/info.plist
 testdir/
 resources/*.png
