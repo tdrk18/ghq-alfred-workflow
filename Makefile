@@ -31,3 +31,10 @@ convert:
 build:
 	mkdir -p dist
 	GOOS=darwin GOARCH=amd64 go build -o dist/ghq-alfred-workflow
+
+.PHONY: clean
+clean:
+	cd resources && \
+	rm -f {github, gitlab, bitbucket}.png
+	cd dist && \
+	rm -rf ghq-alfred-workflow ghq-alfred.alfredworkflow resources
