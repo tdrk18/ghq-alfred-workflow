@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"os/exec"
 	"path"
 	"strings"
 
@@ -56,11 +55,6 @@ func getQuery(arg string) string {
 	return strings.Trim(arg, "\n")
 }
 
-func getRepos(bytes []byte) []string {
-	trim := strings.Trim(string(bytes), "\n")
-	return strings.Split(trim, "\n")
-}
-
 func getRepoName(repo string, excludeDomain bool) string {
 	repoPath := strings.Split(repo, "/")
 	length := len(repoPath)
@@ -100,15 +94,6 @@ func getIconName(repo string) string {
 
 func getIcon(repo string) *aw.Icon {
 	return &aw.Icon{Value: path.Join(fmt.Sprintf("resources/%s", getIconName(repo)))}
-}
-
-func execGhq() []byte {
-	command := os.Getenv("ghq")
-	out, err := exec.Command(command, "list", "-p").Output()
-	if err != nil {
-		return []byte{}
-	}
-	return out
 }
 
 func filter(query string) {
