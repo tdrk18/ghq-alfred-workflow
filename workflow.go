@@ -7,7 +7,7 @@ import (
 )
 
 var (
-	modKeys = []aw.ModKey {
+	modKeys = []aw.ModKey{
 		aw.ModCmd,
 		aw.ModCtrl,
 		aw.ModFn,
@@ -28,7 +28,7 @@ func warnEmpty() {
 	wf.WarnEmpty("No matched repository", "Please try new query")
 }
 
-func sendFeedback()  {
+func sendFeedback() {
 	wf.SendFeedback()
 }
 

@@ -20,7 +20,7 @@ func getRepoName(repo string, excludeDomain bool) string {
 func getDomain(repo string) string {
 	repoPath := strings.Split(repo, "/")
 	length := len(repoPath)
-	return repoPath[length - 3]
+	return repoPath[length-3]
 }
 
 func getRepoURL(repo string) string {
