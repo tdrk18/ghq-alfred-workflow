@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	aw "github.com/deanishe/awgo"
 	"testing"
 )
 
@@ -71,5 +72,33 @@ func TestGetRepoURL(t *testing.T) {
 	result := getRepoURL(path)
 	if result != "https://github.com/tdrk18/repo" {
 		t.Fatal(fmt.Sprintf("failed: getRepoURL() returns %s", result))
+	}
+}
+
+func TestGetArgWithModifier(t *testing.T) {
+	path := "/path/to/github.com/tdrk18/repo"
+	resultCmd := getArgWithModifier(path, aw.ModCmd)
+	if resultCmd != "/path/to/github.com/tdrk18/repo" {
+		t.Fatal(fmt.Sprintf("failed: getArgWithModifier() returns %s", resultCmd))
+	}
+	resultCtrl := getArgWithModifier(path, aw.ModCtrl)
+	if resultCtrl != "/path/to/github.com/tdrk18/repo" {
+		t.Fatal(fmt.Sprintf("failed: getArgWithModifier() returns %s", resultCtrl))
+	}
+	resultFn := getArgWithModifier(path, aw.ModFn)
+	if resultFn != "tdrk18/repo" {
+		t.Fatal(fmt.Sprintf("failed: getArgWithModifier() returns %s", resultFn))
+	}
+	resultOpt := getArgWithModifier(path, aw.ModOpt)
+	if resultOpt != "/path/to/github.com/tdrk18/repo" {
+		t.Fatal(fmt.Sprintf("failed: getArgWithModifier() returns %s", resultOpt))
+	}
+	resultShift := getArgWithModifier(path, aw.ModShift)
+	if resultShift != "https://github.com/tdrk18/repo" {
+		t.Fatal(fmt.Sprintf("failed: getArgWithModifier() returns %s", resultShift))
+	}
+	resultDefault := getArgWithModifier(path, "")
+	if resultDefault != "https://github.com/tdrk18/repo" {
+		t.Fatal(fmt.Sprintf("failed: getArgWithModifier() returns %s", resultDefault))
 	}
 }

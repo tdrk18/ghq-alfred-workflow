@@ -115,3 +115,19 @@ func addItem(repo string) {
 		Icon(getIcon(repo)).
 		Valid(true)
 }
+
+func getArgWithModifier(repo string, key aw.ModKey) string {
+	switch key {
+	case aw.ModCmd:
+		return repo
+	case aw.ModCtrl:
+		return repo
+	case aw.ModFn:
+		return getRepoName(repo, true)
+	case aw.ModOpt:
+		return repo
+	case aw.ModShift:
+		return getRepoURL(repo)
+	}
+	return getRepoURL(repo)
+}
