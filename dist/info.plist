@@ -10,9 +10,59 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>BB70136F-9B69-48A3-9BA9-3E182EF28556</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>A4AB6CCC-B182-4188-968B-047A6BA99F9E</string>
+				<key>modifiers</key>
+				<integer>262144</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>A0C2834E-91F4-4887-8A6B-D96E5877AB77</string>
 				<key>modifiers</key>
 				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>6DA5AEFB-54B0-4D1F-BD20-C2CF4DE5D90C</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>8E9C65F3-FA3F-49C8-B434-02434698008D</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>F989B681-D4DF-4CAD-88D6-EE5BC1EC1DA4</string>
+				<key>modifiers</key>
+				<integer>8388608</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>vitoclose</key>
@@ -30,6 +80,32 @@
 	<string>ghq</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>path</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.revealfile</string>
+			<key>uid</key>
+			<string>BB70136F-9B69-48A3-9BA9-3E182EF28556</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>path</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.browseinterminal</string>
+			<key>uid</key>
+			<string>A4AB6CCC-B182-4188-968B-047A6BA99F9E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -98,6 +174,55 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>openwith</key>
+				<string>/Applications/Visual Studio Code.app</string>
+				<key>sourcefile</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>6DA5AEFB-54B0-4D1F-BD20-C2CF4DE5D90C</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>8E9C65F3-FA3F-49C8-B434-02434698008D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>searcher</key>
+				<integer>1635215215</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.systemwebsearch</string>
+			<key>uid</key>
+			<string>F989B681-D4DF-4CAD-88D6-EE5BC1EC1DA4</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Search your local repositories with ghq and open it in your browser.
@@ -110,14 +235,49 @@ Please install ghq.</string>
 			<key>xpos</key>
 			<integer>120</integer>
 			<key>ypos</key>
-			<integer>120</integer>
+			<integer>245</integer>
+		</dict>
+		<key>6DA5AEFB-54B0-4D1F-BD20-C2CF4DE5D90C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>345</integer>
+			<key>ypos</key>
+			<integer>365</integer>
+		</dict>
+		<key>8E9C65F3-FA3F-49C8-B434-02434698008D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>345</integer>
+			<key>ypos</key>
+			<integer>485</integer>
 		</dict>
 		<key>A0C2834E-91F4-4887-8A6B-D96E5877AB77</key>
 		<dict>
 			<key>xpos</key>
-			<integer>350</integer>
+			<integer>345</integer>
 			<key>ypos</key>
-			<integer>120</integer>
+			<integer>245</integer>
+		</dict>
+		<key>A4AB6CCC-B182-4188-968B-047A6BA99F9E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>345</integer>
+			<key>ypos</key>
+			<integer>125</integer>
+		</dict>
+		<key>BB70136F-9B69-48A3-9BA9-3E182EF28556</key>
+		<dict>
+			<key>xpos</key>
+			<integer>345</integer>
+			<key>ypos</key>
+			<integer>10</integer>
+		</dict>
+		<key>F989B681-D4DF-4CAD-88D6-EE5BC1EC1DA4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>345</integer>
+			<key>ypos</key>
+			<integer>610</integer>
 		</dict>
 	</dict>
 	<key>variables</key>
