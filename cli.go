@@ -8,12 +8,10 @@ import (
 func createApp() *cli.App {
 	app := &cli.App{
 		Action: func(c *cli.Context) error {
-			query := getQuery(c.Args().First())
-			repos := getRepos(execGhq())
-			for _, repo := range repos {
+			for _, repo := range getRepos(execGhq()) {
 				addItem(repo)
 			}
-			filter(query)
+			filter(getQuery(c.Args().First()))
 			warnEmpty()
 			sendFeedback()
 			return nil
