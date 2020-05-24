@@ -131,3 +131,19 @@ func getArgWithModifier(repo string, key aw.ModKey) string {
 	}
 	return getRepoURL(repo)
 }
+
+func getSubWithModifier(key aw.ModKey) string {
+	switch key {
+	case aw.ModCmd:
+		return "Reveal in Finder."
+	case aw.ModCtrl:
+		return "Browse in terminal."
+	case aw.ModFn:
+		return "Search in browser."
+	case aw.ModOpt:
+		return "Open files in VSCode."
+	case aw.ModShift:
+		return "Open URL."
+	}
+	return "Open URL."
+}
