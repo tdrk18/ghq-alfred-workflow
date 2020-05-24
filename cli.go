@@ -14,8 +14,8 @@ func createApp() *cli.App {
 				addItem(repo)
 			}
 			filter(query)
-			wf.WarnEmpty("No matched repository", "Please try new query")
-			wf.SendFeedback()
+			warnEmpty()
+			sendFeedback()
 			return nil
 		},
 	}

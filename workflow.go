@@ -24,6 +24,14 @@ func filter(query string) {
 	wf.Filter(query)
 }
 
+func warnEmpty() {
+	wf.WarnEmpty("No matched repository", "Please try new query")
+}
+
+func sendFeedback()  {
+	wf.SendFeedback()
+}
+
 func addItem(repo string) {
 	item := wf.NewItem(getRepoName(repo, true)).
 		Arg(getRepoURL(repo)).
