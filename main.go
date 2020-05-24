@@ -14,6 +14,13 @@ import (
 
 var (
 	wf *aw.Workflow
+	modKeys = []aw.ModKey {
+		aw.ModCmd,
+		aw.ModCtrl,
+		aw.ModFn,
+		aw.ModOpt,
+		aw.ModShift,
+	}
 )
 
 func init() {
@@ -109,10 +116,22 @@ func filter(query string) {
 }
 
 func addItem(repo string) {
-	wf.NewItem(getRepoName(repo, true)).
+	item := wf.NewItem(getRepoName(repo, true)).
 		Arg(getRepoURL(repo)).
 		Subtitle(getDomain(repo)).
 		Icon(getIcon(repo)).
+		Valid(true)
+
+	for _, key := range modKeys {
+		item.SetModifier(createModifier(repo, key))
+	}
+}
+
+func createModifier(repo string, key aw.ModKey) *aw.Modifier {
+	mod := &aw.Modifier{Key: key}
+	return mod.
+		Arg(getArgWithModifier(repo, key)).
+		Subtitle(getSubWithModifier(key)).
 		Valid(true)
 }
 
