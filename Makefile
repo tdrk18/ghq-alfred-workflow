@@ -39,8 +39,8 @@ clean:
 	cd dist && \
 	rm -rf ghq-alfred-workflow ghq-alfred.alfredworkflow resources
 
-.PHONY: distribution
-distribution: clean convert build
+.PHONY: distribute
+distribute: clean convert build
 	mkdir -p dist/resources
 	cp resources/*.png dist/resources/
 	cd dist && \
